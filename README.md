@@ -80,4 +80,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 3. Header 
 4. Login Form
 5. SignUp Form
-
+6. Routing
+7. Form Validation
+8. useRef Hook
