@@ -1,18 +1,21 @@
 import React from 'react';
 import { signOut } from "firebase/auth";
 import { auth } from '../utils/firebase';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const user = auth.currentUser;
 
   const handleSignOut = () => {
-    signOut(auth).then(() => {
-      navigate("/");
-    }).catch((error) => {
-      navigate("/error");
-    });
+    signOut(auth)
+      .then(() => {
+        navigate("/"); // Redirect to login page after sign out
+      })
+      .catch((error) => {
+        navigate("/error"); // Redirect to error page on sign-out failure
+      });
   };
 
   return (
@@ -23,24 +26,19 @@ const Header = () => {
         alt="logo"
       />
 
-      <div className='flex p-2'>
-        {user ? (
-          <>
-            <img 
-              className='w-12 h-12'
-              alt="usericon" 
-              src={user.photoURL || "https://occ-0-6247-2164.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABdpkabKqQAxyWzo6QW_ZnPz1IZLqlmNfK-t4L1VIeV1DY00JhLo_LMVFp936keDxj-V5UELAVJrU--iUUY2MaDxQSSO-0qw.png?r=e6e"}
-            />
-            <button onClick={handleSignOut} className='font-bold text-white'>
-              Sign Out
-            </button>
-          </>
-        ) : (
-          <button onClick={() => navigate('/login')} className='font-bold text-white'>
-            Sign In
+      {/* Show the user icon and sign-out button only if the user is logged in and not on the login or sign-up pages */}
+      {user && location.pathname !== '/login' && location.pathname !== '/signup' && (
+        <div className='flex p-2'>
+          <img 
+            className='w-12 h-12'
+            alt="usericon" 
+            src={user.photoURL || "https://occ-0-6247-2164.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABdpkabKqQAxyWzo6QW_ZnPz1IZLqlmNfK-t4L1VIeV1DY00JhLo_LMVFp936keDxj-V5UELAVJrU--iUUY2MaDxQSSO-0qw.png?r=e6e"}
+          />
+          <button onClick={handleSignOut} className='font-bold text-white ml-4'>
+            Sign Out
           </button>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
