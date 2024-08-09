@@ -36,7 +36,7 @@ const Login = () => {
           })
           .then(() => {
             // Profile updated!
-            navigate("/browse");
+            navigate("/");
           }).catch((error) => {
             // An error occurred
             setErrorMessage(error.message);
