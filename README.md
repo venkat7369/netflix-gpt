@@ -83,3 +83,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 6. Routing
 7. Form Validation
 8. useRef Hook
+9. Firebase setup 
+10. linked firebase to login and sign up forms from APi
+11. Deployed app the production
+12. Created Redux store with userSlice
+13. 
+
