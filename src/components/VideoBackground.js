@@ -1,17 +1,17 @@
 import React from 'react';
-import {useEffect} from 'react';
-import { API_OPTIONS } from '../utils/constants'
-import { useDispatch, useSelector } from 'react-redux';
-import { addTrailerVideo } from '../utils/moviesSlice';
+import { useSelector } from 'react-redux';
+import useMovieTrailer from '../hooks/useMovieTrailer';
 
 
 const VideoBackground = ({movieId}) => {
   const trailerVideo = useSelector(store => store.movies?.trailerVideo)
   
 
+  useMovieTrailer(movieId);
 
   return (
-    <div><iframe width="560" 
+    <div><iframe 
+    width="560" 
     height="315" 
     src={"https://www.youtube.com/embed/"+trailerVideo?.key}
     title="YouTube video player" 
