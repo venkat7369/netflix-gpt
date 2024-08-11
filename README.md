@@ -87,5 +87,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 10. linked firebase to login and sign up forms from APi
 11. Deployed app the production
 12. Created Redux store with userSlice
-13. 
+13. updated profile
+14. fixed bugs 
+15. register to the TMDB APIs and create a app & get access token
+16. Axcessed data from TMDB and playing trailers
+17. Custom Hook for Now Playing movies
+18. created and slice and updated the store with movies data
+19. updated store with trailer video data
+20. embedded the youtube video and make it autoplay and mute
+21. Updated all the tailwind 
 
