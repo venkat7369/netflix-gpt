@@ -96,4 +96,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 19. updated store with trailer video data
 20. embedded the youtube video and make it autoplay and mute
 21. Updated all the tailwind 
+22. Build movie list and movie card
+23. TMDB Image CDN URL 
+24. Made some browse page good with tailwind css
+25. Used Custom Hooks
+
+
 
